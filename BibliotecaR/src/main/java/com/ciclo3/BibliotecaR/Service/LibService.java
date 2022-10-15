@@ -38,11 +38,14 @@ public class LibService {
         if(lib.getId()!=null){
             Optional<Lib> libEncontrada = getLib(lib.getId());
             if(!libEncontrada.isEmpty()){
-                if(lib.getTarget()!=null){
-                    libEncontrada.get().setTarget(lib.getTarget());
+                if(lib.getName()!=null){
+                    libEncontrada.get().setName(lib.getName());
                 }
                 if(lib.getCapacity()!=null){
                     libEncontrada.get().setCapacity(lib.getCapacity());
+                }
+                if(lib.getDescription()!=null){
+                    libEncontrada.get().setDescription(lib.getDescription());
                 }
                 if (lib.getCategory()!=null){
 

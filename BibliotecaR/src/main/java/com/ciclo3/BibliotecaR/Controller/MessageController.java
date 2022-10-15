@@ -1,5 +1,6 @@
 package com.ciclo3.BibliotecaR.Controller;
 
+import com.ciclo3.BibliotecaR.Model.Client;
 import com.ciclo3.BibliotecaR.Model.Message;
 import com.ciclo3.BibliotecaR.Service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,18 @@ public class MessageController {
     @ResponseStatus(HttpStatus.CREATED)
     public Message save (@RequestBody Message message){
         return messageService.save(message);
+    }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Message update(@RequestBody Message message){
+        return messageService.update(message);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete (@PathVariable("id")int id){
+        return messageService.delete(id);
     }
 
 }

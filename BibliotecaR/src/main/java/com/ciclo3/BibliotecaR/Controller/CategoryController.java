@@ -1,5 +1,6 @@
 package com.ciclo3.BibliotecaR.Controller;
 
+import com.ciclo3.BibliotecaR.Model.Admin;
 import com.ciclo3.BibliotecaR.Model.Category;
 import com.ciclo3.BibliotecaR.Service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,4 +34,15 @@ public class CategoryController {
         return categoryService.save(category);
     }
 
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Category update(@RequestBody Category category){
+        return categoryService.update(category);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete (@PathVariable("id")int id){
+        return categoryService.delete(id);
+    }
 }

@@ -53,8 +53,8 @@ public class ClientService {
         return client;
     }
 
-    public boolean delete(int idClient){
-        Boolean respuesta = getClient(idClient).map(elemento -> {
+    public boolean delete(int id){
+        Boolean respuesta = getClient(id).map(elemento -> {
             clientRepository.delete(elemento);
             return true;
         }).orElse(false);

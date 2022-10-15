@@ -1,5 +1,6 @@
 package com.ciclo3.BibliotecaR.Controller;
 
+import com.ciclo3.BibliotecaR.Model.Message;
 import com.ciclo3.BibliotecaR.Model.Reservation;
 import com.ciclo3.BibliotecaR.Service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,18 @@ public class ReservationController {
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation save (@RequestBody Reservation reservation){
         return reservationService.save(reservation);
+    }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Reservation update(@RequestBody Reservation reservation){
+        return reservationService.update(reservation);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete (@PathVariable("id")int id){
+        return reservationService.delete(id);
     }
 
 }
