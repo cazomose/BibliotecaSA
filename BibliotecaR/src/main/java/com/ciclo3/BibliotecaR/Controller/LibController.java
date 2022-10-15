@@ -27,7 +27,7 @@ public class LibController {
         return libService.getLib(id);
     }
 
-    @GetMapping("/save")
+    @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Lib save (@RequestBody Lib lib){
         return libService.save(lib);
