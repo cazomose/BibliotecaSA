@@ -41,6 +41,9 @@ public class LibService {
                 if(lib.getName()!=null){
                     libEncontrada.get().setName(lib.getName());
                 }
+                if(lib.getTarget()!=null){
+                    libEncontrada.get().setTarget(lib.getTarget());
+                }
                 if(lib.getCapacity()!=null){
                     libEncontrada.get().setCapacity(lib.getCapacity());
                 }
