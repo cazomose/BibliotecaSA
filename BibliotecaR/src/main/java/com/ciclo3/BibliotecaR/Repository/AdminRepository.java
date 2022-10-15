@@ -14,7 +14,7 @@ public class AdminRepository {
     private AdminCrudRepository adminCrudRepository;
 
     public List<Admin> getAll(){
-        return (List<Admin>) adminCrudRepository;
+        return (List<Admin>) adminCrudRepository.findAll();
     }
 
     public Optional<Admin> getAdmin(int idAdmin) {

@@ -14,7 +14,7 @@ public class LibRepository {
     private LibCrudRepository libCrudRepository;
 
     public List<Lib> getAll(){
-        return (List<Lib>) libCrudRepository;
+        return (List<Lib>) libCrudRepository.findAll();
     }
 
     public Optional<Lib> getLib(int id){

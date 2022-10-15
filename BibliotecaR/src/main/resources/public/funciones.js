@@ -1,6 +1,6 @@
 function ListarCli(){
 $.ajax({
-url: "http://localhost:8080/ListarClient",
+url: "http://localhost:8080/api/Client/all",
 type: "GET",
 dataype: "JSON",
 success:function(respuesta){
@@ -14,9 +14,10 @@ function mostrarTC(filas){
 let myTablaC="<table>";
 for(i=0; i<filas.length; i++){
 myTablaC += "<tr>"
-myTablaC += "<td>"+filas[i].id+"</td>"
-myTablaC += "<td>"+filas[i].name+"</td>"
+myTablaC += "<td>"+filas[i].idClient+"</td>"
 myTablaC += "<td>"+filas[i].email+"</td>"
+myTablaC += "<td>"+filas[i].password+"</td>"
+myTablaC += "<td>"+filas[i].name+"</td>"
 myTablaC += "<td>"+filas[i].age+"</td>"
 myTablaC += "<td><buttton onclick='cargarDatos("+filas[i].id+")'>Editar</button></td>"
 myTablaC += "<td><buttton onclick='eliminarCliente("+filas[i].id+")'>Eliminar</button></td>"
@@ -55,7 +56,7 @@ age:$('#ageC_insert').val(),
 let datosEnvio=JSON.stringify(datos);
 //console.log(datosEnvio);
 $.ajax({
-url:"http://localhost:8080/InsertarCliente",
+url:"http://localhost:8080/api/Client/save",
 type:"POST",
 data:datosEnvio,
 contentType:"application/JSON",

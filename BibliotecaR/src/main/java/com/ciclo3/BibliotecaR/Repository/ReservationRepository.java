@@ -14,7 +14,7 @@ public class ReservationRepository {
     private ReservationCrudRepository reservationCrudRepository;
 
     public List<Reservation> getAll(){
-        return (List<Reservation>) reservationCrudRepository;
+        return (List<Reservation>) reservationCrudRepository.findAll();
     }
 
     public Optional<Reservation> getReservation(int idReservation){

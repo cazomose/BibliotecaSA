@@ -14,7 +14,7 @@ public class MessageRepository {
     private MessageCrudRepository messageCrudRepository;
 
     public List<Message> getAll(){
-        return (List<Message>) messageCrudRepository;
+        return (List<Message>) messageCrudRepository.findAll();
     }
 
     public Optional<Message> getMessage(int idMessage){
