@@ -2,6 +2,7 @@ package com.ciclo3.BibliotecaR.Service;
 
 import com.ciclo3.BibliotecaR.Model.Client;
 import com.ciclo3.BibliotecaR.Repository.ClientRepository;
+import com.ciclo3.BibliotecaR.Repository.crudRepository.ClientCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import java.util.Optional;
 public class ClientService {
     @Autowired
     private ClientRepository clientRepository;
+    private ClientCrudRepository clientCrudRepository;
 
     public List<Client> getAll(){
         return clientRepository.getAll();
@@ -19,6 +21,10 @@ public class ClientService {
 
     public Optional<Client> getClient (int idClient){
         return clientRepository.getClient(idClient);
+    }
+
+    public List<Client>listaClient(){
+        return (List<Client>) clientCrudRepository.findAll(); //Consultar todos los libros
     }
 
     public Client save(Client client){
