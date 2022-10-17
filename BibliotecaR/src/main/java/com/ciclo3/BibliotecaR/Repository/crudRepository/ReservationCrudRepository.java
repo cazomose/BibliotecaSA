@@ -16,6 +16,5 @@ public interface ReservationCrudRepository extends CrudRepository<Reservation, I
     @Query("SELECT c.client, COUNT(c.client) FROM Reservation AS c GROUP BY c.client ORDER BY COUNT (c.client) DESC")
     public List<Object[]> getTotalReservationsByClient();
 
-    public List<Object[]> countTotalReservationByRoom();
 
 }
