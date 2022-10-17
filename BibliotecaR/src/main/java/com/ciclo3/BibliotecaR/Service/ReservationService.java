@@ -94,7 +94,7 @@ public class ReservationService {
         List<Reservation> cancelled = reservationRepository.getReservationsByStatus("cancelled");
 
         int cantidadCompletadas = completed.size();
-        int cantidadCanceladas = completed.size();
+        int cantidadCanceladas = cancelled.size();
 
         return new CompletedAndCancelled ((long) cantidadCompletadas, (long) cantidadCanceladas);
     }
