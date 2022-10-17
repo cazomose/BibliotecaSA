@@ -192,6 +192,7 @@ $('#guardarC').show();
 
 function Limpiar(){
 $("#todo").load('Client.html');
+$('#idC_insert').val("");
 $('#nameC_insert').val("");
 $('#nameC_insert').removeAttr('disabled');
 $('#emailC_insert').val("");

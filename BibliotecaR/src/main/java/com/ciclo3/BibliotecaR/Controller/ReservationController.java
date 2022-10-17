@@ -1,5 +1,7 @@
 package com.ciclo3.BibliotecaR.Controller;
 
+import com.ciclo3.BibliotecaR.Model.DTOs.CompletedAndCancelled;
+import com.ciclo3.BibliotecaR.Model.DTOs.TotalAndClient;
 import com.ciclo3.BibliotecaR.Model.Message;
 import com.ciclo3.BibliotecaR.Model.Reservation;
 import com.ciclo3.BibliotecaR.Service.ReservationService;
@@ -46,4 +48,18 @@ public class ReservationController {
         return reservationService.delete(id);
     }
 
+    @GetMapping("/report-dates/{fecha1}/{fecha2}")
+    public List<Reservation> getReservationsBetweenDates(@PathVariable("fecha1") String fecha1, @PathVariable("fecha2") String fecha2){
+        return reservationService.getReservationsBetweenDatesReport(fecha1, fecha2);
+    }
+
+    @GetMapping("/report-status")
+    public CompletedAndCancelled getReservationStatusReport(){
+        return reservationService.getReservationsStatusReport();
+    }
+
+    @GetMapping("/report-clients")
+    public List<TotalAndClient> getTopClientsReport(){
+        return reservationService.getTopClientsReport();
+    }
 }

@@ -1,7 +1,9 @@
 package com.ciclo3.BibliotecaR.Service;
 
 import com.ciclo3.BibliotecaR.Model.Category;
+import com.ciclo3.BibliotecaR.Model.Client;
 import com.ciclo3.BibliotecaR.Repository.CategoryRepository;
+import com.ciclo3.BibliotecaR.Repository.crudRepository.CategoryCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ import java.util.Optional;
 public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
+    private CategoryCrudRepository categoryCrudRepository;
 
     public List<Category> getAll(){
         return categoryRepository.getAll();
@@ -19,6 +22,10 @@ public class CategoryService {
 
     public Optional<Category> getcategory (int id){
         return categoryRepository.getCategory(id);
+    }
+
+    public List<Category>listaClient(){
+        return (List<Category>) categoryCrudRepository.findAll(); //Consultar todos los libros
     }
 
     public Category save(Category category){
